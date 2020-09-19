@@ -9,12 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 import modelo.Persona;
 
-public class PersonaDAO implements  CRUD{
+/*public class PersonaDAO implements  CRUD{
     Conexion conect = new Conexion();
     Connection con;
     PreparedStatement ps;
     ResultSet rs;
-    Persona nPersona = new Persona();
+    Persona nPersona = new Persona();*/
     
     @Override
     public List listar() {
@@ -46,7 +46,7 @@ public class PersonaDAO implements  CRUD{
         ps = con.prepareStatement(sql);
         rs = ps.executeQuery();
         while(rs.next()){
-            nPersona.setIdPersona(rs.getInt("IdPersona"));
+            nPersona.setIdPersona(rs.getInt("idPersona"));
             nPersona.setDpiPersona(rs.getString("dpiPersona"));
             nPersona.setNombresPersona(rs.getString("nombresPersona"));
         }
@@ -96,4 +96,4 @@ public class PersonaDAO implements  CRUD{
         return false;
     }
     
-}
+//}
