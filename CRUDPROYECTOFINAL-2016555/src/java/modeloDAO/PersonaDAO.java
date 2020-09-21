@@ -1,7 +1,7 @@
 package modeloDAO;
 
 import Configuración.Conexion;
-import Interfaces.CRUD;
+//import Interfaces.CRUD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
