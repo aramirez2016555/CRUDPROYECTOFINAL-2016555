@@ -1,22 +1,22 @@
 package modeloDAO;
 
-import configuracion.Conexion;
-import interfaces.CRUD;
+import Configuración.Conexion;
+//import interfaces.CRUD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.Persona;
+import Modelo.Persona;
 
 public class PersonaDAO implements  CRUD{
     Conexion conect = new Conexion();
     Connection con;
     PreparedStatement ps;
     ResultSet rs;
-    Persona nPersona = new Persona();*/
+    Persona nPersona = new Persona();
     
-    @Override
+
     public List listar() {
         ArrayList<Persona> listaPersona = new ArrayList<>();
         String sql = "select * from persona";
@@ -37,7 +37,6 @@ public class PersonaDAO implements  CRUD{
         return listaPersona;
     }
 
-    @Override
     public Persona list(int id) {
         String sql = "select * from persona where idPersona =" + id;
     
@@ -56,7 +55,7 @@ public class PersonaDAO implements  CRUD{
         return nPersona;
     }
 
-    @Override
+
     public boolean add(Persona per) {
         String sql = "insert into persona(dpiPersona, nombresPersona) values ('"+per.getDpiPersona()+"','"+per.getNombresPersona()+"')"; 
         
@@ -70,7 +69,7 @@ public class PersonaDAO implements  CRUD{
     return false;
     }
 
-    @Override
+
     public boolean edit(Persona per) {
         String sql = "update persona set dpiPersona = '"+per.getDpiPersona()+"', nombresPersona= '"+per.getNombresPersona()+"'where idPersona= " +per.getIdPersona();
         try{
@@ -83,7 +82,7 @@ public class PersonaDAO implements  CRUD{
         return false;
     }
 
-    @Override
+
     public boolean eliminar(int id) {
         String sql = "delete from persona where idPersona = "+id;
         try{
