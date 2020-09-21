@@ -1,11 +1,9 @@
-package configuracion;
+package Configuración;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-
 public class Conexion {
-    
     Connection conexion;
     
     public Conexion(){
@@ -23,5 +21,4 @@ public class Conexion {
     public Connection getConnection(){
         return conexion;
     }
-    
 }
