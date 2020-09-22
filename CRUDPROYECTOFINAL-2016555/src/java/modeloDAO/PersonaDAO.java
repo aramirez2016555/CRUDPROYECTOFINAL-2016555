@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import Modelo.Persona;
 
-public class PersonaDAO implements  CRUD{
+public class PersonaDAO implements CRUD{
     Conexion conect = new Conexion();
     Connection con;
     PreparedStatement ps;

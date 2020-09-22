@@ -50,8 +50,8 @@ public class Controlador extends HttpServlet {
         }else if(action.equalsIgnoreCase("Agregar")){
             String DPI = request.getParameter("txtDPI");
             String Nombre = request.getParameter("txtNombre");
-            nuevaPersona.setDPI(DPI);
-            nuevaPersona.setNombrePersona(Nombre);
+            nuevaPersona.setDpiPersona(DPI);
+            nuevaPersona.setNombresPersona(Nombre);
             nuevaPersonaDAO.add(nuevaPersona);
             acceso = listar;
         }else if(action.equalsIgnoreCase("editar")){
@@ -61,14 +61,14 @@ public class Controlador extends HttpServlet {
             codigoPersona = Integer.parseInt(request.getParameter("txtCodigoPersona"));
             String DPI = request.getParameter("txtDPI");
             String nombres = request.getParameter("txtNombre");
-            nuevaPersona.setCodigoPersona(codigoPersona);
-            nuevaPersona.setDPI(DPI);
-            nuevaPersona.setNombrePersona(nombres);
+            nuevaPersona.setIdPersona(codigoPersona);
+            nuevaPersona.setDpiPersona(DPI);
+            nuevaPersona.setNombresPersona(nombres);
             nuevaPersonaDAO.edit(nuevaPersona);
             acceso = listar;
         }else if (action.equalsIgnoreCase("eliminar")){
             codigoPersona = Integer.parseInt(request.getParameter("txtCodigoPersona"));
-            nuevaPersona.setCodigoPersona(codigoPersona);
+            nuevaPersona.setIdPersona(codigoPersona);
             nuevaPersonaDAO.eliminar(codigoPersona);
             acceso = listar;
         }
