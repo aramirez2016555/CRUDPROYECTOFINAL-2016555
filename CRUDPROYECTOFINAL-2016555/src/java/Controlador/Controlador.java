@@ -14,9 +14,9 @@ import Modelo.Persona;
 public class Controlador extends HttpServlet {
 
     String listar = "view/listar.jsp";
-    String add = "view/add.jsp";
+    String add = "view/agregar.jsp";
     String edit ="view/editar.jsp";
-    int codigoPersona;
+    int IdPersona;
     Persona nuevaPersona = new Persona();
     PersonaDAO nuevaPersonaDAO = new PersonaDAO();
   
@@ -41,6 +41,7 @@ public class Controlador extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         String acceso = "";
         String action = request.getParameter("accion");
         if(action.equalsIgnoreCase("listar")){
@@ -55,21 +56,21 @@ public class Controlador extends HttpServlet {
             nuevaPersonaDAO.add(nuevaPersona);
             acceso = listar;
         }else if(action.equalsIgnoreCase("editar")){
-            request.setAttribute("codPer", request.getParameter("codigoPersona"));
+            request.setAttribute("idPer", request.getParameter("idPersona"));
             acceso = edit;
         }else if(action.equalsIgnoreCase("Actualizar")){
-            codigoPersona = Integer.parseInt(request.getParameter("txtCodigoPersona"));
+            IdPersona = Integer.parseInt(request.getParameter("txtIdPersona"));
             String DPI = request.getParameter("txtDPI");
             String nombres = request.getParameter("txtNombre");
-            nuevaPersona.setIdPersona(codigoPersona);
+            nuevaPersona.setIdPersona(IdPersona);
             nuevaPersona.setDpiPersona(DPI);
             nuevaPersona.setNombresPersona(nombres);
             nuevaPersonaDAO.edit(nuevaPersona);
             acceso = listar;
         }else if (action.equalsIgnoreCase("eliminar")){
-            codigoPersona = Integer.parseInt(request.getParameter("txtCodigoPersona"));
-            nuevaPersona.setIdPersona(codigoPersona);
-            nuevaPersonaDAO.eliminar(codigoPersona);
+            IdPersona = Integer.parseInt(request.getParameter("txtIdPersona"));
+            nuevaPersona.setIdPersona(IdPersona);
+            nuevaPersonaDAO.eliminar(IdPersona);
             acceso = listar;
         }
         
@@ -86,10 +87,9 @@ public class Controlador extends HttpServlet {
         processRequest(request, response);
     }
 
-    
-    @Override
+        @Override
     public String getServletInfo() {
         return "Short description";
-    }
 
+    }
 }

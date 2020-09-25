@@ -30,8 +30,8 @@
             <div class="col-lg-5">
                 <% 
                     PersonaDAO nuevaPersonaDao = new PersonaDAO();
-                    int codPersona = Integer.parseInt((String)request.getAttribute("idPer"));
-                    Persona nuevaPersona = (Persona)nuevaPersonaDao.list(codPersona);
+                    int idPersona = Integer.parseInt((String)request.getAttribute("idPer"));
+                    Persona nuevaPersona = (Persona)nuevaPersonaDao.list(idPersona);
                 %>
                 <h1>Modificar Persona</h1>
                 <form action="Controlador">

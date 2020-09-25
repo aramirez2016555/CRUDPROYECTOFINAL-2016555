@@ -1,7 +1,7 @@
 package interfaces;
 
 import java.util.List;
-import Modelos.Persona;
+import Modelo.Persona;
 
 public interface CRUD {
     public List listar();

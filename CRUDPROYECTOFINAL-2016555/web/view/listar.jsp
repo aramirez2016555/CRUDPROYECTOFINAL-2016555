@@ -1,7 +1,7 @@
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page import="Modelo.Persona"%>
-<%@page import="ModeloDAO.PersonaDAO"%>
+<%@page import="modeloDAO.PersonaDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -40,7 +40,7 @@
                     <td class="text-center active"><%=per.getNombresPersona()%></td>
                     <td class="text-center">
                         <a class="btn btn-warning" href="Controlador?accion=editar&idPersona=<%= per.getIdPersona()%>">Edit</a>
-                        <a class="btn btn-danger"href="Controlador?accion=eliminar&idPersona=<%= per.getIdPersona()%>">Remove</a>
+                        <a href="Controlador?accion=eliminar&idPersona=<%= per.getIdPersona()%>">Remove</a>
                         
                     </td>
                    
